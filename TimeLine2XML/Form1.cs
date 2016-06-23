@@ -29,6 +29,14 @@ namespace TimeLine2XML
                 filename,
                 System.Text.Encoding.GetEncoding("shift_jis")))
             {
+
+                while (sr.Peek() >= 0 && ExceptionError == false)
+                {
+                    //sb.Length = 0;
+                    HeaderAnalyze(sr.ReadLine());
+                }
+
+
                 while (sr.Peek() >= 0 && ExceptionError==false)
                 {
                     //sb.Length = 0;
@@ -120,6 +128,48 @@ namespace TimeLine2XML
                 dataGV[ID, i].Value = (i + 1);
             }
             
+        }
+
+
+        const int HEADER_ID = 1;
+
+        private void HeaderAnalyze(string s, int editRow = -1)
+        {
+            if (s == "") { return; }
+
+            string[] linebuf = s.Split(' ');
+
+            if (linebuf.Length == 0) { return; }
+
+            if (linebuf[0].IndexOf("#") != -1)
+            {
+                int row;
+                //コメント文
+                if (editRow == -1)
+                {
+                    dataGV.Rows.Add();
+                    row = dataGV.RowCount - 2;
+                    //dataGV[COMMENT, row].Value = "#";//1行処理では値を変えない
+                }
+                else
+                {
+                    row = editRow;
+                    //既にコメント文なので、処理を中断する
+                    if (dataGV[COMMENT, row].Value.ToString() == "#") { return; }
+
+                    headerGV[SYNC_TEXT, row].Value = "";
+                    headerGV[DURATION_SEC, row].Value = "";
+                    headerGV[WINDOW_VALUE, row].Value = "";
+                }
+                headerGV[DURATION, row].Value = "";
+                headerGV[SYNC, row].Value = "";
+                headerGV[WINDOW, row].Value = "";
+                headerGV[TITLE, row].Value = s;
+                return;
+
+
+
+            }
         }
 
         //Grid col Index 
