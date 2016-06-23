@@ -37,3 +37,12 @@ C:\G\ACT\trunk3 - コピー\t2xml\TimeLine2XML\obj\Debug\TimeLine2XML.pdb
 E:\ACT\trunk2\t2xml\TimeLine2XML\bin\Debug\TimeLine2XML.exe.config
 E:\ACT\trunk2\t2xml\TimeLine2XML\obj\Debug\TimeLine2XML.exe
 E:\ACT\trunk2\t2xml\TimeLine2XML\obj\Debug\TimeLine2XML.pdb
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\bin\Debug\TimeLine2XML.exe.config
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Debug\TimeLine2XML.exe
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Debug\TimeLine2XML.pdb
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\bin\Debug\TimeLine2XML.exe
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\bin\Debug\TimeLine2XML.pdb
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Debug\TimeLine2XML.csprojResolveAssemblyReference.cache
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Debug\TimeLine2XML.Form1.resources
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Debug\TimeLine2XML.Properties.Resources.resources
+E:\ACT\trunk2\TimeLine2XML\TimeLine2XML\obj\Debug\TimeLine2XML.csproj.GenerateResource.Cache
