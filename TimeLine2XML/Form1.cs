@@ -35,7 +35,7 @@ namespace TimeLine2XML
                     //sb.Length = 0;
                     HeaderAnalyze(sr.ReadLine());
                 }
-
+                sr.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
 
                 while (sr.Peek() >= 0 && ExceptionError==false)
                 {
@@ -131,7 +131,12 @@ namespace TimeLine2XML
         }
 
 
-        const int HEADER_ID = 1;
+        const int HEADER_ID = 0;
+        const int HEADER_COMMENT = 1;
+        const int HEADER_DEFINTION = 2;
+
+        const int HEADER_TEXT_DEFINTION = 2;
+
 
         private void HeaderAnalyze(string s, int editRow = -1)
         {
@@ -147,29 +152,67 @@ namespace TimeLine2XML
                 //コメント文
                 if (editRow == -1)
                 {
-                    dataGV.Rows.Add();
-                    row = dataGV.RowCount - 2;
+                    headerGV.Rows.Add();
+                    row = headerGV.RowCount - 2;
                     //dataGV[COMMENT, row].Value = "#";//1行処理では値を変えない
                 }
                 else
                 {
                     row = editRow;
                     //既にコメント文なので、処理を中断する
-                    if (dataGV[COMMENT, row].Value.ToString() == "#") { return; }
+                    if (headerGV[COMMENT, row].Value.ToString() == "#") { return; }
 
-                    headerGV[SYNC_TEXT, row].Value = "";
-                    headerGV[DURATION_SEC, row].Value = "";
-                    headerGV[WINDOW_VALUE, row].Value = "";
+                    //headerGV[SYNC_TEXT, row].Value = "";
+                    //eaderGV[DURATION_SEC, row].Value = "";
+                    //headerGV[WINDOW_VALUE, row].Value = "";
                 }
-                headerGV[DURATION, row].Value = "";
-                headerGV[SYNC, row].Value = "";
-                headerGV[WINDOW, row].Value = "";
-                headerGV[TITLE, row].Value = s;
+                headerGV[HEADER_DEFINTION, row].Value = "";
+                //headerGV[SYNC, row].Value = "";
+                //headerGV[WINDOW, row].Value = "";
+                //headerGV[TITLE, row].Value = s;
                 return;
+            }
+            string[] line = linebuf;
+            if (line.Length == 0) { return; }
+            try
+            {
+                int row;
+                if (editRow == -1)
+                {
+                    headerGV.Rows.Add();
+                    row = headerGV.RowCount - 2;
+                }
+                else
+                {
+                    row = editRow;
+                }
+                sb.Length = 0;
+                sb.Append(line[HEADER_TEXT_DEFINTION].Trim().ToLower());
 
+                if(sb.ToString()== "define")
+                {
+                    headerGV[HEADER_DEFINTION, row].Value = "define";
+                }else if(sb.ToString() == "alertall")
+                {
+                    headerGV[HEADER_DEFINTION, row].Value = "alertall";
+                }
+                else
+                {
+                    //未知の定義
+                    return;
+                }
+                //headerGV[HEADER_DEFINTION, row].Value = line[HEADER_TEXT_DEFINTION].Trim();
+                //headerGV[TITLE, row].Value = line[TEXT_TITLE].Trim(new char[] { '"' });
 
 
             }
+            catch (Exception e)
+            {
+                int row = headerGV.RowCount - 2;
+                MessageBox.Show(e.ToString(), "Error:(" + row.ToString() + ")", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ExceptionError = true;
+            }
+
         }
 
         //Grid col Index 
