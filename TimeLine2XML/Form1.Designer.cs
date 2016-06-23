@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openFLD = new System.Windows.Forms.OpenFileDialog();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -64,7 +64,7 @@
             this.saveFLD = new System.Windows.Forms.SaveFileDialog();
             this.headerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HeaderCommentOut = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Header = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Headerdefinition = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Data1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sound = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,20 +154,20 @@
             // 
             // dataGV
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Navy;
-            this.dataGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Navy;
+            this.dataGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AutoId,
@@ -184,9 +184,9 @@
             this.dataGV.GridColor = System.Drawing.Color.SlateGray;
             this.dataGV.Location = new System.Drawing.Point(0, 0);
             this.dataGV.Name = "dataGV";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            this.dataGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            this.dataGV.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGV.RowTemplate.Height = 21;
             this.dataGV.Size = new System.Drawing.Size(900, 171);
             this.dataGV.TabIndex = 1;
@@ -345,7 +345,7 @@
             this.headerGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.headerId,
             this.HeaderCommentOut,
-            this.Header,
+            this.Headerdefinition,
             this.Data1,
             this.Lavel,
             this.Sound,
@@ -453,13 +453,13 @@
             this.HeaderCommentOut.Name = "HeaderCommentOut";
             this.HeaderCommentOut.Width = 50;
             // 
-            // Header
+            // Headerdefinition
             // 
-            this.Header.HeaderText = "Header";
-            this.Header.Items.AddRange(new object[] {
+            this.Headerdefinition.HeaderText = "定義設定";
+            this.Headerdefinition.Items.AddRange(new object[] {
             "define",
             "alertall"});
-            this.Header.Name = "Header";
+            this.Headerdefinition.Name = "Headerdefinition";
             // 
             // Data1
             // 
@@ -551,7 +551,7 @@
         private System.Windows.Forms.DataGridView headerGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn headerId;
         private System.Windows.Forms.DataGridViewComboBoxColumn HeaderCommentOut;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Header;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Headerdefinition;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lavel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sound;
